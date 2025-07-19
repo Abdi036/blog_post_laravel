@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Welcome to Blog_Post</h1>
-    <a href="/">All Blogs</a>
+    <a href="/blogs">All Blogs</a>
     <a href="/blogs/create">Create Blog</a>
     <main>
         {{ $slot }}

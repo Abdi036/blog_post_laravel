@@ -6,44 +6,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('/blogs', function () {
-    $datas = [
-        [
-            "id"=> "1",
-            'title' => 'First Blog',
-            'content' => 'This is the content of the first blog.',
-            'author' => 'John Doe',
-        ],
-        [
-            "id"=> "2",
-            'title' => 'Second Blog',
-            'content' => 'This is the content of the second blog.',
-            'author' => 'Jane Smith',
-        ],
-    ];
-    return view('blogs.index', ["data" => $datas]);
+  $datas = [
+    ["title" => "First Blog", "content" => "This is the content of the first blog.", "author" => "John Doe", "id" => "1"],
+    ["title" => "Second Blog", "content" => "This is the content of the second blog.", "author" => "Jane Smith", "id" => "2"],
+  ];
+
+  return view('blogs.index', ["data" => $datas]);
 });
+
 Route::get('/blogs/create', function () {
-    return view('blogs.create');
+  return view('blogs.create');
 });
+
 Route::get('/blogs/{id}', function ($id) {
-    $datas = [
-        [
-            "id"=> "1",
-            'title' => 'First Blog',
-            'content' => 'This is the content of the first blog.',
-            'author' => 'John Doe',
-        ],
-        [
-            "id"=> "2",
-            'title' => 'Second Blog',
-            'content' => 'This is the content of the second blog.',
-            'author' => 'Jane Smith',
-        ],
-    ];
-    $filtered = array_filter($datas, function($item) use ($id) {
-        return $item['id'] == $id;
-    });
-    return view('blogs.about', ["data" => $filtered]);
+  return view('blogs.blog', ['id' => $id]);
 });
