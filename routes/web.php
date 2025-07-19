@@ -24,6 +24,9 @@ Route::get('/blogs', function () {
     ];
     return view('blogs.index', ["data" => $datas]);
 });
+Route::get('/blogs/create', function () {
+    return view('blogs.create');
+});
 Route::get('/blogs/{id}', function ($id) {
     $datas = [
         [
@@ -39,5 +42,8 @@ Route::get('/blogs/{id}', function ($id) {
             'author' => 'Jane Smith',
         ],
     ];
-    return view('blogs.about', ["data" => $datas]);
+    $filtered = array_filter($datas, function($item) use ($id) {
+        return $item['id'] == $id;
+    });
+    return view('blogs.about', ["data" => $filtered]);
 });

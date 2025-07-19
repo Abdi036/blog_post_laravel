@@ -1,13 +1,8 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
-</head>
-<body>
+<x-layout>
+    @foreach ($data as $item)
     <h1>About</h1>
-    <p>Title : {{ $data[0]['title'] }}</p>
-    <p>Author: {{ $data[0]['author'] }}</p>
-    <p>Content: {{ $data[0]['content'] }}</p>
-</body>
-</html>
+    <p>Title : {{ $item['title'] }}</p>
+    <p>Author: {{ $item['author'] }}</p>
+    <p>Content: {{ $item['content'] }}</p>
+    @endforeach
+</x-layout>
