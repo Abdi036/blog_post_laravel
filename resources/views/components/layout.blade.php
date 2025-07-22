@@ -9,7 +9,8 @@
 <body class="bg-gray-100 min-h-screen">
    <div class="bg-white shadow-md py-6 px-4 mb-8 flex flex-col md:flex-row items-center justify-between">
     <a href="/">
-     <h1 class="text-3xl font-bold text-blue-700 mb-2 md:mb-0">Welcome to Blog_Post</h1>
+       <h1 class="text-3xl font-bold text-blue-700 mb-2 md:mb-0">Welcome</h1>
+     </a>
     </a>
      <div class="space-x-4">
        <a href="/blogs" class="text-blue-600 hover:underline font-semibold">All Blogs</a>
