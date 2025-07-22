@@ -1,19 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\blogController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/blogs', function () {
-  $datas = [
-    ["title" => "First Blog", "content" => "This is the content of the first blog.", "author" => "John Doe", "id" => "1"],
-    ["title" => "Second Blog", "content" => "This is the content of the second blog.", "author" => "Jane Smith", "id" => "2"],
-  ];
-
-  return view('blogs.index', ["data" => $datas]);
-});
+Route::get('/blogs', [blogController::class, 'index']);
 
 Route::get('/blogs/create', function () {
   return view('blogs.create');
