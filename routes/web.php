@@ -7,12 +7,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/blogs', [blogController::class, 'index']);
+Route::get('/blogs', [blogController::class, 'index'])->name('blogs.index');
 
-Route::get('/blogs/create', function () {
-  return view('blogs.create');
-});
+Route::get('/blogs/create', [blogController::class,'create'])->name('blogs.create');
 
-Route::get('/blogs/{id}', function ($id) {
-  return view('blogs.blog', ['id' => $id]);
-});
+Route::get('/blogs/{id}', [blogController::class,'show'])->name('blogs.show');

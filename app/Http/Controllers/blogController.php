@@ -8,20 +8,17 @@ use App\Models\blog;
 class blogController extends Controller
 {
     public function index(){
-        $posts = blog::orderBy('created_at', 'desc')->get();
-   
-        return view('blogs.index',['posts'=> $posts]);
+        $blogs = blog::orderBy('created_at', 'desc')->paginate(10);;
+
+        return view('blogs.index',['blogs'=> $blogs]);
     }
     public function show($id){
-
+        $blog = blog::findOrFail($id);
+        return view('blogs.blog', ['blog' => $blog]);
     }
-    public function edit($id){
 
+    public function create(){
+        return view('blogs.create');
     }
-    public function update(Request $request, $id){
-
-    }
-    public function destroy($id){
-
-    }
+   
 }

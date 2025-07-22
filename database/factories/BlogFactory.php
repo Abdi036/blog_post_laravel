@@ -18,7 +18,7 @@ class BlogFactory extends Factory
     {
         return [
             "title"=> fake()->sentence(),
-            "content"=> fake()->paragraph(300),
+            "content"=> fake()->paragraph(35),
             "author"=> fake()->name(),
         ];
     }
