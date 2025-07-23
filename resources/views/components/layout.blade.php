@@ -9,15 +9,15 @@
 <body class="bg-gray-100 min-h-screen">
    <div class="bg-white shadow-md py-6 px-4 mb-8 flex flex-col md:flex-row items-center justify-between">
     <a href="/">
-       <h1 class="text-3xl font-bold text-blue-700 mb-2 md:mb-0">Welcome</h1>
+       <h1 class="text-3xl font-bold text-black mb-2 md:mb-0">Welcome</h1>
      </a>
     </a>
      <div class="space-x-4">
-       <a href="/blogs" class="text-blue-600 hover:underline font-semibold">All Blogs</a>
-       <a href="/blogs/create" class="text-green-600 hover:underline font-semibold">Create Blog</a>
+       <a href="/blogs" class="text-blue-500 hover:underline font-semibold">All Blogs</a>
+       <a href="/blogs/create" class="text-blue-500 hover:underline font-semibold">Create Blog</a>
      </div>
    </div>
-    <main class="max-w-3xl mx-auto p-4 bg-white rounded shadow">
+    <main class="max-w-[90%] mx-auto p-4 bg-white rounded shadow">
         {{ $slot }}
     </main>
 </body>

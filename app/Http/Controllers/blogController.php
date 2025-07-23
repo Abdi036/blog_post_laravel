@@ -8,7 +8,7 @@ use App\Models\blog;
 class blogController extends Controller
 {
     public function index(){
-        $blogs = blog::orderBy('created_at', 'desc')->paginate(10);;
+        $blogs = blog::orderBy('created_at', 'desc')->paginate(10);
 
         return view('blogs.index',['blogs'=> $blogs]);
     }
@@ -19,6 +19,19 @@ class blogController extends Controller
 
     public function create(){
         return view('blogs.create');
+    }
+
+    public function store(Request $request){
+        $validated = $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'content' => 'required|min:20',
+        ]);
+
+        blog::create($validated);
+       
+
+        return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
     }
    
 }

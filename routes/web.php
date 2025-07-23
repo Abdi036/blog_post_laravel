@@ -12,3 +12,5 @@ Route::get('/blogs', [blogController::class, 'index'])->name('blogs.index');
 Route::get('/blogs/create', [blogController::class,'create'])->name('blogs.create');
 
 Route::get('/blogs/{id}', [blogController::class,'show'])->name('blogs.show');
+
+Route::post('/blogs', [blogController::class,'store'])->name('blogs.store');
