@@ -7,6 +7,20 @@
     <title>Blog_Post</title>
 </head>
 <body class="bg-gray-100 min-h-screen">
+  @if(session('success'))
+    <div 
+      id="success-message" 
+      class="bg-green-400 text-center text-white font-bold p-4 shadow max-w-[100%] mx-auto"
+    >
+        {{ session('success') }}
+    </div>
+    <script>
+      setTimeout(function() {
+        var msg = document.getElementById('success-message');
+        if (msg) msg.style.display = 'none';
+      }, 3500);
+    </script>
+  @endif
    <div class="bg-white shadow-md py-6 px-4 mb-8 flex flex-col md:flex-row items-center justify-between">
     <a href="/">
        <h1 class="text-3xl font-bold text-black mb-2 md:mb-0">Welcome</h1>

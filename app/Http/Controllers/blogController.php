@@ -39,5 +39,19 @@ class blogController extends Controller
 
         return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
     }
+
+    public function update(Request $request, $id){
+        $blog = blog::findOrFail($id);
+
+        $validated = $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'content' => 'required|min:20',
+        ]);
+
+        $blog->update($validated);
+
+        return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
+    }
    
 }
