@@ -29,9 +29,15 @@ class blogController extends Controller
         ]);
 
         blog::create($validated);
-       
 
         return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
+    }
+
+    public function destroy($id){
+        $blog = blog::findOrFail($id);
+        $blog->delete();
+
+        return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
     }
    
 }

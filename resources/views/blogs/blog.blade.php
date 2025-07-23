@@ -6,4 +6,10 @@
         <p class="text-gray-700">{{ $blog->content }}</p>
       </div>
   </div>
+
+  <form action="{{ route('blogs.destroy', $blog->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="bg-red-400 p-3 rounded-2xl text-white cursor-pointer hover:bg-red-600">Delete Blog</button>
+  </form>
 </x-layout>
