@@ -6,7 +6,7 @@
     @vite('resources/css/app.css')
     <title>Blog_Post</title>
 </head>
-<body class="bg-gray-100 min-h-screen">
+<body class="bg-white min-h-screen">
   @if(session('success'))
     <div 
       id="success-message" 
@@ -37,9 +37,16 @@
               class="bg-black text-white font-bold py-2 px-6 rounded shadow transition duration-200 cursor-pointer hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400">
               SignIn
         </a>
+
+        <form action="{{ route('signout') }}" method="POST" class="inline">
+            @csrf
+            <button type="submit" class="bg-red-500 text-white font-bold py-2 px-4 rounded shadow hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400">
+                Sign Out
+            </button>
+        </form>
      </div>
    </div>
-    <main class="max-w-[90%] mx-auto p-4 bg-white rounded shadow">
+    <main class="max-w-[90%] mx-auto p-4 bg-white">
         {{ $slot }}
     </main>
 </body>

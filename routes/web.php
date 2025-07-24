@@ -9,9 +9,11 @@ Route::get('/', function () {
 });
 
 // Authentication
-Route::get("/signup",[authController::class,"signup"])->name("signup");
-
-Route::get('/signin', [authController::class, 'signin'])->name('signin');
+Route::get("/signup",[authController::class,"showSignup"])->name("show.signup");
+Route::get('/signin', [authController::class, 'showSignin'])->name('show.signin');
+Route::post("/signup",[authController::class,"signup"])->name("signup");
+Route::post('/signin', [authController::class, 'signin'])->name('signin');
+Route::post('/signout', [authController::class, 'signout'])->name('signout');
 
 Route::get('/blogs', [blogController::class, 'index'])->name('blogs.index');
 
