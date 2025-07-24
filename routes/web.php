@@ -1,11 +1,17 @@
 <?php
 
+use App\Http\Controllers\authController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\blogController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Authentication
+Route::get("/signup",[authController::class,"signup"])->name("signup");
+
+Route::get('/signin', [authController::class, 'signin'])->name('signin');
 
 Route::get('/blogs', [blogController::class, 'index'])->name('blogs.index');
 

@@ -29,6 +29,14 @@
      <div class="space-x-4">
        <a href="/blogs" class="text-blue-500 hover:underline font-semibold">All Blogs</a>
        <a href="/blogs/create" class="text-blue-500 hover:underline font-semibold">Create Blog</a>
+       <a href="/signup" 
+              class="bg-black text-white font-bold py-2 px-6 rounded shadow transition duration-200 cursor-pointer hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400">
+              SignUp
+        </a>
+       <a href="/signin" 
+              class="bg-black text-white font-bold py-2 px-6 rounded shadow transition duration-200 cursor-pointer hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400">
+              SignIn
+        </a>
      </div>
    </div>
     <main class="max-w-[90%] mx-auto p-4 bg-white rounded shadow">

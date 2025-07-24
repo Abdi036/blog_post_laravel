@@ -1,5 +1,5 @@
 <x-layout>
-  <h2 class="text-2xl font-bold text-gray-800 mb-6">Currently Available Blogs</h2>
+  <h2 class="text-2xl font-bold text-gray-800 mb-6">All Blogs</h2>
   <ul>
     @foreach($blogs as $blog)
       <li class="list-none">
