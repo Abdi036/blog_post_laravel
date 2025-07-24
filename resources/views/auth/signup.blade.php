@@ -2,7 +2,7 @@
     <div class="min-h-[76vh] flex items-center justify-center">
         <div class=" p-8 rounded-xl w-full max-w-md mx-auto">
             <h1 class="text-3xl font-bold text-center text-black mb-6">Signup to Create Account</h1>
-            <form action={{ route('signup') }} method="POST" class="space-y-5">
+            <form action="{{ route('signup') }}" method="POST" class="space-y-5">
                 @csrf
                 <div>
                     <label class="block mb-1 text-gray-700 font-semibold" for="name">Name</label>
@@ -31,7 +31,7 @@
 
                 <!-- validation errors -->
                 @if ($errors->any())
-                    <div class="mt-4 p-7 bg-red-300">
+                    <div class="mt-4 p-7 bg-red-200">
                         <ul class="list-inside text-sm text-red-500">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>

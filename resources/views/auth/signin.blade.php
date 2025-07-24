@@ -1,7 +1,7 @@
 <x-layout>
     <div class="p-8 rounded-xl w-full max-w-md mx-auto min-h-[75vh]">
         <h1 class="text-3xl font-bold text-center text-black mb-6">SignIn to Your Account</h1>
-        <form action={{ route('signin') }} method="POST" class="space-y-5">
+        <form action="{{ route('signin') }}" method="POST" class="space-y-5">
             @csrf
             <div>
                 <label class="block mb-1 text-gray-700 font-semibold" for="email">Email</label>
@@ -17,6 +17,17 @@
                 class="w-full bg-black text-white font-bold py-2 rounded-lg shadow hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-400 transition duration-200">
                 Sign In
             </button>
+
+             <!-- validation errors -->
+            @if ($errors->any())
+                <div class="mt-4 p-7 bg-red-200">
+                    <ul class="list-inside text-sm text-red-500">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </form>
         <p class="mt-6 text-center text-gray-600">
             Don't have an account?
