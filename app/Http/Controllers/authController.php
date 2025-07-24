@@ -12,8 +12,8 @@ class authController extends Controller
     public function showSignup(){
         return view("auth.signup");
     }
-    public function showSignin(){
-        return view("auth.signin");
+    public function showlogin(){
+        return view("auth.login");
     }
 
     public function signup(Request $request){
@@ -28,7 +28,7 @@ class authController extends Controller
       return redirect()->route('blogs.index');
     }
 
-    public function signin(Request $request)
+    public function login(Request $request)
   {
       $validated = $request->validate([
         'email' => 'required|email',
@@ -51,6 +51,6 @@ class authController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('show.signin');
+        return redirect()->route('show.login');
     }
 }

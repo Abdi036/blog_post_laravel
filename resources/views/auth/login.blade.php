@@ -1,7 +1,7 @@
 <x-layout>
     <div class="p-8 rounded-xl w-full max-w-md mx-auto min-h-[75vh]">
-        <h1 class="text-3xl font-bold text-center text-black mb-6">SignIn to Your Account</h1>
-        <form action="{{ route('signin') }}" method="POST" class="space-y-5">
+        <h1 class="text-3xl font-bold text-center text-black mb-6">login to Your Account</h1>
+        <form action="{{ route('login') }}" method="POST" class="space-y-5">
             @csrf
             <div>
                 <label class="block mb-1 text-gray-700 font-semibold" for="email">Email</label>

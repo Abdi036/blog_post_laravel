@@ -9,20 +9,20 @@ Route::get('/', function () {
 });
 
 // Authentication
-Route::get("/signup",[authController::class,"showSignup"])->name("show.signup");
-Route::get('/signin', [authController::class, 'showSignin'])->name('show.signin');
-Route::post("/signup",[authController::class,"signup"])->name("signup");
-Route::post('/signin', [authController::class, 'signin'])->name('signin');
 Route::post('/signout', [authController::class, 'signout'])->name('signout');
+Route::middleware("guest")->controller(authController::class)->group(function () {
+    Route::get("/signup",[authController::class,"showSignup"])->name("show.signup");
+    Route::get('/login', [authController::class, 'showlogin'])->name('show.login');
 
-Route::get('/blogs', [blogController::class, 'index'])->name('blogs.index');
+    Route::post("/signup",[authController::class,"signup"])->name("signup");
+    Route::post('/login', [authController::class, 'login'])->name('login');
+});
 
-Route::get('/blogs/create', [blogController::class,'create'])->name('blogs.create');
-
-Route::get('/blogs/{id}', [blogController::class,'show'])->name('blogs.show');
-
-Route::post('/blogs', [blogController::class,'store'])->name('blogs.store');
-
-Route::delete('/blogs/{id}', [blogController::class,'destroy'])->name('blogs.destroy');
-
-Route::patch('/blogs/{id}', [blogController::class,'update'])->name('blogs.update');
+Route::middleware('auth')->controller(blogController::class)->group(function(){
+    Route::get('/blogs', 'index')->name('blogs.index');
+    Route::get('/blogs/create', 'create')->name('blogs.create');
+    Route::get('/blogs/{id}', 'show')->name('blogs.show');
+    Route::post('/blogs', 'store')->name('blogs.store');
+    Route::delete('/blogs/{id}', 'destroy')->name('blogs.destroy');
+    Route::patch('/blogs/{id}', 'update')->name('blogs.update');
+});

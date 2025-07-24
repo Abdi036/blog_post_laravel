@@ -1,6 +1,6 @@
 @vite('resources/css/app.css')
 <x-layout>
-     <div class="flex flex-col items-center justify-center min-h-[75vh] bg-gradient-to-br from-blue-50 via-white to-green-50">
+     <div class="flex flex-col items-center justify-center min-h-[75vh]">
             <h1 class="text-4xl font-extrabold text-blue-700 mb-4 tracking-tight">Welcome to <span class="text-green-600">Laravel Blog</span></h1>
             <p class="text-lg text-gray-600 mb-8">
                 A simple, elegant blog platform built with <span class="font-bold text-blue-600">Laravel</span> and <span class="font-bold text-green-600">TailwindCSS</span>.
@@ -14,7 +14,6 @@
                 <span class="text-sm text-gray-500">Start sharing your stories today!</span>
                 <span class="text-gray-400">|</span>
             </div>
-        
     </div>
 </x-layout>
 

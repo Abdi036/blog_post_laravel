@@ -42,7 +42,7 @@
             </form>
             <p class="mt-6 text-center text-gray-600">
                 Already have an account?
-                <a href="/signin" class="text-blue-500 font-semibold hover:underline">Sign In</a>
+                <a href="/login" class="text-blue-500 font-semibold hover:underline">Sign In</a>
             </p>
         </div>
     </div>
