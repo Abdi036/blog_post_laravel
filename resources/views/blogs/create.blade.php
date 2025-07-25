@@ -10,13 +10,7 @@
               required>
            
          </div>
-         <div>
-          <label for="author" class="block text-gray-700 font-semibold mb-2">Author</label>
-          <input type="text" name="author" id="author" value="{{ old('author') }}"
-              class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-400"
-              required>
-          
-         </div>
+        
          <div>
           <label for="content" class="block text-gray-700 font-semibold mb-2">Content</label>
           <textarea name="content" id="content" rows="6"

@@ -46,7 +46,7 @@
 
     @auth
       <div class="space-x-4">
-        <span>Hello, {{ auth()->user()->name }}</span> | &nbsp; 
+        <span>Hello, {{ explode(' ', auth()->user()->name)[0] }}</span>| &nbsp; 
         <a href="{{ route('blogs.index') }}" class="text-blue-500 hover:underline font-semibold">All Blogs</a>
         <a href="{{ route('blogs.create') }}" class="text-blue-500 hover:underline font-semibold">Create Blog</a>
         <form action="{{ route('signout') }}" method="POST" class="inline">

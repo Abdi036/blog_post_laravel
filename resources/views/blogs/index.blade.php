@@ -3,9 +3,9 @@
   <ul>
     @foreach($blogs as $blog)
       <li class="list-none">
-        <x-card :highlight="$blog->author == 'John Doe'" href="/blogs/{{$blog->id}}">
+        <x-card href="/blogs/{{$blog->id}}">
           <h3 class="text-xl font-semibold text-gray-700 mb-1">{{ $blog->title }}</h3>
-          <p class="text-gray-600 text-sm">By {{ $blog->author }}</p>
+          <p class="text-gray-600 mb-1"><span class="font-semibold text-black">By: </span>{{ $blog->user->name }}</p>
         </x-card>
       </li>
     @endforeach

@@ -6,9 +6,11 @@
       <div>
         <h3 class="text-xl font-bold text-black mb-2" x-text="title"></h3>
         <div class="bg-gray-50 p-4 rounded shadow">
-          <p class="text-gray-600 mb-1"><span class="font-semibold text-black">By: </span><span x-text="author"></span></p>
+          <p class="text-gray-600 mb-1"><span class="font-semibold text-black">By: </span>{{ $blog->user->name }}</p>
           <p class="text-gray-700 whitespace-pre-line" x-text="content"></p>
         </div>
+
+        @if(auth()->check() && auth()->id() === $blog->user_id)
         <div class="flex gap-3 mt-4">
           <button @click="editing = true"
             class="bg-blue-400 px-4 py-2 rounded-2xl text-white cursor-pointer font-semibold hover:bg-blue-500 transition">Edit</button>
@@ -19,6 +21,8 @@
               class="bg-red-400 px-4 py-2 rounded-2xl text-white cursor-pointer font-semibold hover:bg-red-600 transition">Delete Blog</button>
           </form>
         </div>
+        @endif
+        
       </div>
     </template>
     <template x-if="editing">

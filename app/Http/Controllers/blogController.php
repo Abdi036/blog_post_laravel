@@ -24,28 +24,25 @@ class blogController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'title' => 'required',
-            'author' => 'required',
             'content' => 'required|min:20',
         ]);
+
+        $validated['user_id'] = auth()->id();
 
         blog::create($validated);
 
         return redirect()->route('blogs.index')->with('success', 'Blog created successfully.');
     }
 
-    public function destroy($id){
-        $blog = blog::findOrFail($id);
-        $blog->delete();
-
-        return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
-    }
-
     public function update(Request $request, $id){
         $blog = blog::findOrFail($id);
 
+        if ($blog->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $validated = $request->validate([
             'title' => 'required',
-            'author' => 'required',
             'content' => 'required|min:20',
         ]);
 
@@ -53,5 +50,16 @@ class blogController extends Controller
 
         return redirect()->route('blogs.index')->with('success', 'Blog updated successfully.');
     }
-   
+
+    public function destroy($id){
+        $blog = blog::findOrFail($id);
+
+        if ($blog->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized action.');
+        }
+
+        $blog->delete();
+
+        return redirect()->route('blogs.index')->with('success', 'Blog deleted successfully.');
+    }
 }
