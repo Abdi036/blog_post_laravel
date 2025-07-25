@@ -10,8 +10,14 @@ class blog extends Model
     protected $fillable = [
         'title',
         'content',
-        'author',
+        'user_id',
     ]; 
+
     /** @use HasFactory<\Database\Factories\BlogFactory> */
     use HasFactory;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
