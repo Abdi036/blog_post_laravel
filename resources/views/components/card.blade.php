@@ -1,13 +1,16 @@
 @props(['highlight' => false])
 
 <div @class([
-    'border-2 rounded-lg p-4 mb-4 shadow transition-all',
-    'border-blue-400 bg-blue-50' => $highlight,
-    'border-gray-200 bg-gray-50' => !$highlight,
+    'rounded-lg p-6 shadow-sm transition-all border',
+    'bg-blue-50 border-blue-400' => $highlight,
+    'bg-white border-gray-200 hover:shadow-md' => !$highlight,
     'card'
-  ])>
-  <div class="mb-2">
+])>
+  <div class="mb-4">
     {{ $slot }}
   </div>
-  <a {{ $attributes->merge(['class' => 'inline-block mt-2 text-blue-600 hover:text-blue-800 font-semibold transition']) }} >Read More...</a>
+
+  <a {{ $attributes->merge(['class' => 'block w-full text-center text-sm font-semibold text-gray-700 border border-gray-200 rounded-md py-2 hover:bg-gray-100 transition']) }}>
+    Read More
+  </a>
 </div>
